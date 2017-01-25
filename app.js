@@ -68,22 +68,38 @@ function manejarClics() {
 								});
 	var elimina=document.getElementById("on");
 	elimina.addEventListener("click",eliminar);
+
+	var cambiasigno=document.getElementById("sign");
+	cambiasigno.addEventListener("click",camsig);
+
+	var raiz=document.getElementById("raiz");
+	raiz.addEventListener("click",raizc);
 }
 
 function clicEn(num){
-				if (num="0") {
-					cifra1=0;
-				} else {
-					cifra1+=num;
-	        var pan=document.getElementById("display");
-				}
-			pan.innerHTML=cifra1;
+        cifra1+=num;
+        var pan=document.getElementById("display");
+        pan.innerHTML=cifra1;
 }
 
 function calcular()	{
 	var rta=eval(cifra1);
 	var pan=document.getElementById("display");
 	pan.innerHTML=rta;
+}
+
+function camsig()	{
+	var cs=cifra1*(-1);
+	var pan=document.getElementById("display");
+	pan.innerHTML=cs;
+	cifra1=cs;
+}
+
+function raizc()	{
+	var rc=Math.sqrt(cifra1)
+	var pan=document.getElementById("display");
+	pan.innerHTML=rc;
+	cifra1=rc;
 }
 
 function eliminar(){
@@ -94,7 +110,6 @@ function eliminar(){
 
 function borrar(){
 	var bor=document.getElementById("display");
-//	var eli= cifra1.slice(0,-1);
 	cifra1=0;
 	bor.innerHTML=cifra1;
 }
